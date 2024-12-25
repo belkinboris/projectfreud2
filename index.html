@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Introductory Page -->
+  <div id="introPage" class="intro-page">
+    <div class="intro-header">
+      <img src="your-image-path.jpg" alt="Intro Illustration" class="intro-image">
+    </div>
+    <div class="intro-text">
+      <h1>Welcome to Simulation</h1>
+      <p>Support for all of life’s moments</p>
+    </div>
+    <div class="intro-actions">
+      <label class="terms">
+        <input type="checkbox" id="acceptTerms">
+        I agree to the <a href="#">Terms & Conditions</a> and acknowledge the <a href="#">Privacy Policy</a>.
+      </label>
+      <button id="createAccount" class="btn-primary">Create an Account</button>
+      <button id="login" class="btn-secondary">Log in</button>
+    </div>
+  </div>
+
+  <!-- Existing App Content -->
+  <div id="appContent" style="display: none;">
+  <div id="header">
+    <span id="logo">Simulation</span>
+    <button id="diaryButton" onclick="goToDiary()">Diary</button>
+  </div>
+  
+  <div class="card">
+      <h1>Stats</h1>
+    <div class="stat">
+      <p>Age: <span id="age">0</span></p>
+    </div>
+    <div class="stat">
+      <p>Happiness <span>😊</span></p>
+      <div class="progress-bar">
+        <div id="happinessBar" class="progress-fill" style="width: 100%;"></div>
+      </div>
+    </div>
+    <div class="stat">
+      <p>Health <span>❤️</span></p>
+      <div class="progress-bar">
+        <div id="healthBar" class="progress-fill" style="width: 100%;"></div>
+      </div>
+    </div>
+    <div class="stat">
+      <p>Smarts <span>📘</span></p>
+      <div class="progress-bar">
+        <div id="smartsBar" class="progress-fill" style="width: 50%;"></div>
+      </div>
+    </div>
+    <div class="stat">
+      <p>Looks <span>⭐</span></p>
+      <div class="progress-bar">
+        <div id="looksBar" class="progress-fill" style="width: 50%;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <h1>Event Log</h1>
+    <div id="eventLog"></div>
+  </div>
+
+  <button id="ageUp" class="btn-success">Age Up</button>
+
+  <button id="resetGame" class="btn-danger">Reset Game</button>
+  
+  <script>
+      function goToDiary() {
+          window.location.href = "diary.html";
+      }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
