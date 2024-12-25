@@ -1,0 +1,274 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+    background: #ffffff; /* Белый background */
+    color: #333; /* Neutral text color */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff; /* Белый header */
+    border-bottom: 2px solid #eaeaea; /* Subtle border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+#logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4184f3; /* Синий */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button {
+    background: #4184f3; /* Синий for buttons */
+    color: #ffffff; /* Белый text */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+    background: #265daf; /* Darker Синий for hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
+/* Progress Bars */
+.stat {
+    margin: 15px 0;
+}
+
+.progress-bar {
+    background: #e6e6e6; /* Neutral background for progress bar */
+    border-radius: 8px;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress-fill {
+    background: #4184f3; /* Синий for progress */
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.4s ease-in-out; /* Smooth width animation */
+}
+
+/* Card Styles */
+.card {
+    background: #ffffff; /* Белый for cards */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    color: #333;
+    border: 1px solid #f0f0f0;
+    text-align: center;
+}
+
+.card h1 {
+    font-size: 24px;
+    color: #4184f3; /* Синий for headings */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+/* Introductory Page */
+.intro-page {
+  background: linear-gradient(to bottom, #FFD600 50%, #002B55 50%);
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.intro-header {
+  margin-top: 50px;
+}
+
+.intro-image {
+  width: 200px;
+  height: auto;
+}
+
+.intro-text {
+  margin-top: 20px;
+}
+
+.intro-text h1 {
+  font-size: 28px;
+  color: white;
+}
+
+.intro-text p {
+  font-size: 16px;
+  color: white;
+  margin: 10px 0;
+}
+
+.intro-actions {
+  background-color: #002B55;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+}
+
+.terms {
+  font-size: 14px;
+  color: white;
+}
+
+.terms input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.terms a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 90%;
+}
+
+.btn-primary:disabled {
+  background-color: #8CBFFF;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #4B4B4B;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 90%;
+}
+
+/* Stat Display */
+.card p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.card span {
+    font-weight: bold;
+    color: #265daf; /* Secondary Синий */
+}
+
+/* Buttons */
+#ageUp, #resetGame {
+    display: block;
+    margin: 20px auto;
+    font-weight: bold;
+    padding: 12px 18px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#ageUp {
+    background: #4184f3; /* Синий */
+    color: #ffffff; /* Белый text */
+    border-radius: 8px;
+}
+
+#ageUp:hover {
+    background: #265daf; /* Darker Синий */
+}
+
+#resetGame {
+    background: #8a929a; /* Графитовый */
+    color: #ffffff; /* Белый text */
+    border-radius: 8px;
+}
+
+#resetGame:hover {
+    background: #61696f; /* Darker Графитовый */
+}
+
+/* Event Log Animation */
+#eventLog p {
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 0.8s ease forwards; /* Fade-in effect */
+}
+
+button:active {
+    transform: scale(0.95); /* Slight compression when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Slightly lower position */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Normal position */
+    }
+}
+
+/* Event Log */
+#eventLog {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f6f6f6; /* Light neutral background */
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#eventLog p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .card {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
