@@ -174,7 +174,7 @@ const events = [
         stat: ["smarts", "happiness"],
         rarity: "common",
         category: "teenage",
-        ageRange: [13, 19]
+        ageRange: [14, 19]
     },
     {
         text: "You passed an important exam! (+Smarts)",
