@@ -1,8 +1,8 @@
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: #F5F5F5; /* Neutral light background */
-    color: #333; /* Dark neutral text */
+    background: #FFFFFF; /* Белый */
+    color: #001D2A; /* Графитовый */
     margin: 0;
     padding: 0;
 }
@@ -13,22 +13,22 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: #002B55; /* Graphite/Deep Navy */
-    color: #FFFFFF; /* White text */
+    background: #001D2A; /* Графитовый */
+    color: #FFFFFF; /* Белый text */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #logo {
     font-size: 28px;
     font-weight: bold;
-    color: #FFD600; /* Bright Yellow */
+    color: #4187E6; /* Синий */
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 button {
-    background: #00509E; /* Blue */
-    color: #FFFFFF; /* White text */
+    background: #4187E6; /* Синий */
+    color: #FFFFFF; /* Белый text */
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-    background: #003F7F; /* Darker Blue */
+    background: #A8BFD8; /* Дополнительный Синий (lighter shade for hover) */
     transform: scale(1.05);
 }
 
@@ -48,7 +48,7 @@ button:hover {
 }
 
 .progress-bar {
-    background: #E6E6E6; /* Neutral progress bar background */
+    background: #BBC7DB; /* Дополнительный Neutral background for progress bar */
     border-radius: 8px;
     height: 20px;
     width: 100%;
@@ -57,7 +57,7 @@ button:hover {
 }
 
 .progress-fill {
-    background: #00509E; /* Blue for progress */
+    background: #4187E6; /* Синий for progress */
     height: 100%;
     border-radius: 8px;
     transition: width 0.4s ease-in-out;
@@ -65,28 +65,28 @@ button:hover {
 
 /* Card Styles */
 .card {
-    background: #FFFFFF; /* White for cards */
+    background: #FFFFFF; /* Белый for cards */
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;
-    color: #333;
-    border: 1px solid #DDDDDD;
+    color: #001D2A; /* Графитовый text */
+    border: 1px solid #D8DCE2; /* Дополнительный light gray border */
     text-align: center;
 }
 
 .card h1 {
     font-size: 24px;
-    color: #00509E; /* Blue for headings */
+    color: #4187E6; /* Синий for headings */
     margin-bottom: 10px;
-    border-bottom: 2px solid #EAEAEA;
+    border-bottom: 2px solid #D8DCE2;
     padding-bottom: 10px;
 }
 
 /* Introductory Page */
 .intro-page {
-    background: linear-gradient(to bottom, #FFD600 50%, #002B55 50%);
+    background: linear-gradient(to bottom, #E6C89B 50%, #001D2A 50%);
     color: white;
     height: 100vh;
     display: flex;
@@ -118,7 +118,7 @@ button:hover {
 }
 
 .intro-actions {
-    background-color: #002B55;
+    background-color: #001D2A;
     width: 100%;
     padding: 20px;
     border-radius: 20px 20px 0 0;
@@ -134,7 +134,7 @@ button:hover {
 }
 
 .terms a {
-    color: #FFD600; /* Yellow for links */
+    color: #4187E6; /* Синий for links */
     text-decoration: none;
 }
 
@@ -143,7 +143,7 @@ button:hover {
 }
 
 .btn-primary {
-    background-color: #00509E; /* Blue */
+    background-color: #4187E6; /* Синий */
     color: white;
     border: none;
     padding: 15px 20px;
@@ -155,12 +155,12 @@ button:hover {
 }
 
 .btn-primary:disabled {
-    background-color: #8CBFFF;
+    background-color: #A8BFD8; /* Lighter Синий for disabled */
     cursor: not-allowed;
 }
 
 .btn-secondary {
-    background-color: #4B4B4B; /* Graphite */
+    background-color: #4B4B4B; /* Графитовый */
     color: white;
     border: none;
     padding: 15px 20px;
@@ -179,7 +179,7 @@ button:hover {
 
 .card span {
     font-weight: bold;
-    color: #00509E; /* Blue */
+    color: #4187E6; /* Синий */
 }
 
 /* Buttons */
@@ -194,23 +194,23 @@ button:hover {
 }
 
 #ageUp {
-    background: #00509E; /* Blue */
-    color: #FFFFFF; /* White text */
+    background: #4187E6; /* Синий */
+    color: #FFFFFF; /* Белый text */
     border-radius: 8px;
 }
 
 #ageUp:hover {
-    background: #003F7F; /* Darker Blue */
+    background: #A8BFD8; /* Lighter Синий */
 }
 
 #resetGame {
-    background: #4B4B4B; /* Graphite */
-    color: #FFFFFF; /* White text */
+    background: #4B4B4B; /* Графитовый */
+    color: #FFFFFF; /* Белый text */
     border-radius: 8px;
 }
 
 #resetGame:hover {
-    background: #3B3B3B; /* Darker Graphite */
+    background: #3B3B3B; /* Darker Графитовый */
 }
 
 /* Event Log Animation */
@@ -234,8 +234,8 @@ button:hover {
 #eventLog {
     max-height: 200px;
     overflow-y: auto;
-    background: #F5F5F5; /* Neutral light background */
-    border: 1px solid #DDDDDD;
+    background: #F5F5F5; /* Light neutral background */
+    border: 1px solid #D8DCE2;
     border-radius: 8px;
     padding: 10px;
     margin-top: 10px;
