@@ -230,6 +230,57 @@ button:hover {
     }
 }
 
+/* Micro-level chat styles */
+.micro-chat-log {
+  background-color: #F9F9F9;
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #D8DCE2;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.micro-message {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.micro-message-user {
+  text-align: right; /* user messages appear on the right */
+}
+
+.micro-message-ai {
+  text-align: left; /* AI or system messages appear on the left */
+}
+
+.micro-chat-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.micro-chat-input input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.micro-chat-input button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hint {
+  color: #888;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
 /* Event Log */
 #eventLog {
     max-height: 200px;
