@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Micro-Level Interactions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="header">
+    <span id="logo">Simulation</span>
+    <button id="backButton" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- Container for the micro-level chat/actions -->
+  <div class="card">
+    <h1>Micro-Level Interactions</h1>
+
+    <div id="microChatLog" class="micro-chat-log">
+      <!-- Chat messages appear here -->
+    </div>
+
+    <div class="micro-chat-input">
+      <input 
+        type="text" 
+        id="microInput" 
+        placeholder="Enter your action or dialogue..."
+        onkeydown="handleKeyDown(event)"
+      />
+      <button id="microSendButton" onclick="handleMicroAction()">Send</button>
+    </div>
+
+    <p class="hint">Try actions like: "Talk to Professor", "Rob a bank", "Flirt with the professor", etc.</p>
+  </div>
+
+  <script src="micro.js"></script>
+</body>
+</html>
