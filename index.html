@@ -27,57 +27,57 @@
     </div>
   </div>
 
-  <!-- Existing App Content -->
+  <!-- Main App Content (hidden until user logs in) -->
   <div id="appContent" style="display: none;">
-  <div id="header">
-    <span id="logo">Simulation</span>
-    <button id="diaryButton" onclick="goToDiary()">Diary</button>
-  </div>
-  
-  <div class="card">
+    <div id="header">
+      <span id="logo">Simulation</span>
+      <button id="diaryButton" onclick="goToDiary()">Diary</button>
+    </div>
+    
+    <!-- Stats Card -->
+    <div class="card">
       <h1>Stats</h1>
-    <div class="stat">
-      <p>Age: <span id="age">0</span></p>
-    </div>
-    <div class="stat">
-      <p>Happiness <span>😊</span></p>
-      <div class="progress-bar">
-        <div id="happinessBar" class="progress-fill" style="width: 100%;"></div>
+      <div class="stat">
+        <p>Age: <span id="age">0</span></p>
+      </div>
+      <div class="stat">
+        <p>Happiness <span>😊</span></p>
+        <div class="progress-bar">
+          <div id="happinessBar" class="progress-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+      <div class="stat">
+        <p>Health <span>❤️</span></p>
+        <div class="progress-bar">
+          <div id="healthBar" class="progress-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+      <div class="stat">
+        <p>Smarts <span>📘</span></p>
+        <div class="progress-bar">
+          <div id="smartsBar" class="progress-fill" style="width: 50%;"></div>
+        </div>
+      </div>
+      <div class="stat">
+        <p>Looks <span>⭐</span></p>
+        <div class="progress-bar">
+          <div id="looksBar" class="progress-fill" style="width: 50%;"></div>
+        </div>
       </div>
     </div>
-    <div class="stat">
-      <p>Health <span>❤️</span></p>
-      <div class="progress-bar">
-        <div id="healthBar" class="progress-fill" style="width: 100%;"></div>
-      </div>
-    </div>
-    <div class="stat">
-      <p>Smarts <span>📘</span></p>
-      <div class="progress-bar">
-        <div id="smartsBar" class="progress-fill" style="width: 50%;"></div>
-      </div>
-    </div>
-    <div class="stat">
-      <p>Looks <span>⭐</span></p>
-      <div class="progress-bar">
-        <div id="looksBar" class="progress-fill" style="width: 50%;"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="card">
-    <h1>Event Log</h1>
-    <div id="eventLog"></div>
-  </div>
-
-  <button id="ageUp" class="btn-success">Age Up</button>
-
-  <button id="resetGame" class="btn-danger">Reset Game</button>
-
-<!-- In index.html header or wherever you like -->
-<button onclick="goToMicroLevel()">Micro-Level</button>
     
-<script src="script.js"></script>    
-    
+    <!-- Event Log + Buttons -->
+    <div class="card">
+      <h1>Event Log</h1>
+      <div id="eventLog"></div>
+    </div>
+
+    <button id="ageUp" class="btn-success">Age Up</button>
+    <button id="resetGame" class="btn-danger">Reset Game</button>
+    <button onclick="goToMicroLevel()">Micro-Level</button>
+  </div>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
 </body>
 </html>
