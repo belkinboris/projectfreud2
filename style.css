@@ -1,10 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    /* Previously: background: #FFFFFF;
-       Let's add a subtle gradient from #E6C89B (top) down to #FFFFFF (bottom).
-       Adjust the % split or colors to your preference.
-    */
+    /* Subtle gradient from #E6C89B to #FFFFFF */
     background: linear-gradient(to bottom, #E6C89B 30%, #FFFFFF 100%);
     color: #001D2A; /* Графитовый */
     margin: 0;
@@ -18,7 +15,7 @@ body {
     align-items: center;
     padding: 20px;
     background: #001D2A; /* Графитовый */
-    color: #FFFFFF; /* Белый text */
+    color: #FFFFFF;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -30,10 +27,10 @@ body {
     letter-spacing: 1px;
 }
 
-/* Buttons (global) */
+/* Global Buttons */
 button {
     background: #4187E6; /* Синий */
-    color: #FFFFFF; /* Белый text */
+    color: #FFFFFF;
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
@@ -41,9 +38,8 @@ button {
     cursor: pointer;
     transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.2s ease;
 }
-
 button:hover {
-    background: #A8BFD8; /* Дополнительный Синий (lighter shade for hover) */
+    background: #A8BFD8; /* Lighter blue */
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
@@ -52,18 +48,16 @@ button:hover {
 .stat {
     margin: 15px 0;
 }
-
 .progress-bar {
-    background: #BBC7DB; /* Дополнительный neutral background for progress bar */
+    background: #BBC7DB;
     border-radius: 8px;
     height: 20px;
     width: 100%;
     overflow: hidden;
     margin-top: 5px;
 }
-
 .progress-fill {
-    background: #4187E6; /* Синий for progress */
+    background: #4187E6;
     height: 100%;
     border-radius: 8px;
     transition: width 0.4s ease-in-out;
@@ -71,25 +65,20 @@ button:hover {
 
 /* Card Styles */
 .card {
-    /* Previously:
-       background: #FFFFFF;
-       Let's give it a subtle translucent effect and a bigger box-shadow
-    */
     background: rgba(255,255,255,0.9);
     backdrop-filter: blur(6px);
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;
-    color: #001D2A; /* Графитовый text */
-    border: 1px solid #D8DCE2; /* Дополнительный light gray border */
+    color: #001D2A;
+    border: 1px solid #D8DCE2;
     text-align: center;
 }
-
 .card h1 {
     font-size: 24px;
-    color: #4187E6; /* Синий for headings */
+    color: #4187E6;
     margin-bottom: 10px;
     border-bottom: 2px solid #D8DCE2;
     padding-bottom: 10px;
@@ -97,10 +86,6 @@ button:hover {
 
 /* Introductory Page */
 .intro-page {
-    /* Previously you had:
-       background: linear-gradient(to bottom, #E6C89B 50%, #001D2A 50%);
-       This is still nice, so let's keep it:
-    */
     background: linear-gradient(to bottom, #E6C89B 50%, #001D2A 50%);
     color: white;
     height: 100vh;
@@ -111,27 +96,22 @@ button:hover {
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
-
 .intro-header {
     margin-top: 50px;
 }
-
 .intro-image {
     width: 200px;
     height: auto;
 }
-
 .intro-text h1 {
     font-size: 28px;
     color: #FFFFFF;
 }
-
 .intro-text p {
     font-size: 16px;
     color: #FFFFFF;
     margin: 10px 0;
 }
-
 .intro-actions {
     background-color: #001D2A;
     width: 100%;
@@ -139,28 +119,25 @@ button:hover {
     border-radius: 20px 20px 0 0;
 }
 
-/* Terms text styling */
+/* Terms label */
 .terms {
     font-size: 14px;
     color: white;
 }
-
 .terms input[type="checkbox"] {
     margin-right: 10px;
 }
-
 .terms a {
-    color: #4187E6; /* Синий for links */
+    color: #4187E6;
     text-decoration: none;
 }
-
 .terms a:hover {
     text-decoration: underline;
 }
 
 /* Primary button */
 .btn-primary {
-    background-color: #4187E6; /* Синий */
+    background-color: #4187E6;
     color: white;
     border: none;
     padding: 15px 20px;
@@ -171,15 +148,13 @@ button:hover {
     width: 90%;
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
-
 .btn-primary:hover {
-    background-color: #A8BFD8; 
+    background-color: #A8BFD8;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
-
 .btn-primary:disabled {
-    background-color: #A8BFD8; /* Lighter Синий for disabled */
+    background-color: #A8BFD8;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
@@ -187,7 +162,7 @@ button:hover {
 
 /* Secondary button */
 .btn-secondary {
-    background-color: #4B4B4B; /* Графитовый */
+    background-color: #4B4B4B;
     color: white;
     border: none;
     padding: 15px 20px;
@@ -198,7 +173,6 @@ button:hover {
     width: 90%;
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
-
 .btn-secondary:hover {
     background-color: #3B3B3B;
     transform: translateY(-2px);
@@ -210,10 +184,9 @@ button:hover {
     font-size: 18px;
     margin: 8px 0;
 }
-
 .card span {
     font-weight: bold;
-    color: #4187E6; /* Синий */
+    color: #4187E6;
 }
 
 /* Buttons for Age Up / Reset */
@@ -228,41 +201,38 @@ button:hover {
     border: none;
     border-radius: 8px;
 }
-
 #ageUp {
-    background: #4187E6; /* Синий */
-    color: #FFFFFF; /* Белый text */
+    background: #4187E6;
+    color: #FFFFFF;
 }
 #ageUp:hover {
-    background: #A8BFD8; /* Lighter Синий */
+    background: #A8BFD8;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
-
 #resetGame {
-    background: #4B4B4B; /* Графитовый */
-    color: #FFFFFF; /* Белый text */
+    background: #4B4B4B;
+    color: #FFFFFF;
 }
 #resetGame:hover {
-    background: #3B3B3B; /* Darker Графитовый */
+    background: #3B3B3B;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 /* Event Log Animation */
 #eventLog p {
-    opacity: 0; /* Start invisible */
+    opacity: 0;
     animation: fadeIn 0.8s ease forwards;
 }
-
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px); /* Slightly lower position */
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* Normal position */
+        transform: translateY(0);
     }
 }
 
@@ -276,34 +246,28 @@ button:hover {
   padding: 10px;
   margin-bottom: 10px;
 }
-
 .micro-message {
   margin: 5px 0;
   font-size: 16px;
 }
-
 .micro-message-user {
-  text-align: right; /* user messages appear on the right */
+  text-align: right;
 }
-
 .micro-message-ai {
-  text-align: left; /* AI or system messages appear on the left */
+  text-align: left;
 }
-
 .micro-chat-input {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 }
-
 .micro-chat-input input[type="text"] {
   flex: 1;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
-
 .micro-chat-input button {
   padding: 10px 20px;
   border-radius: 8px;
@@ -311,24 +275,23 @@ button:hover {
   cursor: pointer;
 }
 
-/* A soft color for hint text */
+/* Hint text */
 .hint {
   color: #888;
   font-size: 14px;
   margin-top: 10px;
 }
 
-/* Event Log (duplicated from above for clarity) */
+/* Event Log */
 #eventLog {
     max-height: 200px;
     overflow-y: auto;
-    background: #F5F5F5; /* Light neutral background */
+    background: #F5F5F5;
     border: 1px solid #D8DCE2;
     border-radius: 8px;
     padding: 10px;
     margin-top: 10px;
 }
-
 #eventLog p {
     font-size: 16px;
     margin: 5px 0;
@@ -340,23 +303,19 @@ button:hover {
     body {
         font-size: 14px;
     }
-
     .card {
         margin: 10px;
         padding: 15px;
     }
-
     button {
         font-size: 14px;
         padding: 8px 16px;
     }
-
     .btn-primary,
     .btn-secondary {
         width: auto;
         margin-top: 10px;
     }
-
     #ageUp, #resetGame {
         font-size: 16px;
         margin-top: 10px;
