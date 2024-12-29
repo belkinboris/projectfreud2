@@ -7,21 +7,29 @@
 </head>
 <body>
 
-  <div id="header">
-    <span id="logo">Simulation</span>
-    <button onclick="goBack()">Back</button>
-  </div>
+  <!-- Header -->
+  <header class="top-bar">
+    <div class="top-left">
+      <span class="logo-text" style="color:black;">Simulation</span>
+    </div>
+    <div class="top-right">
+      <button onclick="goBack()" class="btn-reset">Back</button>
+    </div>
+  </header>
 
-  <div class="card">
-    <h1>Game Rules</h1>
-    <p>
-      <!-- Replace with your own rules -->
-      1. You start at age 0... <br />
-      2. You can "Age Up" to progress each year... <br />
-      3. Stats might go up/down based on events... <br />
-      4. If Health or Happiness hits 0, game over!
-    </p>
-  </div>
+  <!-- Main content -->
+  <main class="main-layout">
+    <div class="white-block" style="max-width:800px; margin:0 auto;">
+      <h2>Game Rules</h2>
+      <p>
+        <!-- Replace with your actual rules -->
+        1. You begin at age 0.<br/>
+        2. Press "Age Up" to get older and trigger events.<br/>
+        3. If Health or Happiness hits 0, it’s Game Over.<br/>
+        4. Use "Diary" to check relationships, "Micro-management" for deeper interactions...
+      </p>
+    </div>
+  </main>
 
   <script>
     function goBack() {
