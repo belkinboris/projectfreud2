@@ -574,6 +574,12 @@ function goToDiary() {
     window.location.href = "diary.html";
 }
 
+function goToMicroLevel() {
+  // We can save the game state before we jump to micro-level page
+  saveGameState();
+  window.location.href = "micro.html";
+}
+    
 function checkGameOver() {
     if (health <= 0 || happiness <= 0) {
         alert("Game Over!");
