@@ -41,10 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================
   // 3) EXPOSED GLOBAL FUNCTIONS
   // ==========================
-  // We attach them to `window` so the inline HTML can call them.
-  // E.g., <button onclick="goToMicroLevel()">Micro-Level</button>
-  //       <button onclick="goToDiary()">Diary</button>
-
   window.goToDiary = function goToDiary() {
     saveGameState();
     window.location.href = "diary.html";
@@ -77,192 +73,50 @@ document.addEventListener("DOMContentLoaded", () => {
   createAccountButton.addEventListener("click", proceedToApp);
   loginButton.addEventListener("click", proceedToApp);
 
-  // Initialize the button states
-  toggleButtons();
+  toggleButtons(); // Initialize
 
-  // Array of possible events
+  // EVENTS (Random, Relationship, etc.)
   const events = [
-    // Early Life (Ages 0-5)
-    {
-      text: "You giggled for the first time! (+Happiness)",
-      effect: [5],
-      stat: "happiness",
-      ageRange: [0, 1],
-    },
-    {
-      text: "You started crawling around the house. (+Health)",
-      effect: [5],
-      stat: "health",
-      ageRange: [0, 2],
-    },
-    {
-      text: "You said your first word! (+Smarts)",
-      effect: [10],
-      stat: "smarts",
-      ageRange: [1, 3],
-    },
-    {
-      text: "You took your first steps. (+Happiness)",
-      effect: [10],
-      stat: "happiness",
-      ageRange: [1, 3],
-    },
-    {
-      text: "You had a minor cold. (-Health)",
-      effect: [-5],
-      stat: "health",
-      ageRange: [0, 5],
-    },
-    // Childhood (Ages 6-12)
-    {
-      text: "You discovered a talent for drawing. Start a course?",
-      choices: ["Yes", "No"],
-      effect: [15, 0],
-      stat: "happiness",
-      ageRange: [6, 12],
-    },
-    {
-      text: "You tripped and fell at school. (-Health)",
-      effect: [-5],
-      stat: "health",
-      ageRange: [6, 12],
-    },
-    {
-      text: "You made a new best friend! (+Happiness)",
-      effect: [10],
-      stat: "happiness",
-      ageRange: [6, 12],
-    },
-    {
-      text: "You started learning how to ride a bike. (+Smarts)",
-      effect: [5],
-      stat: "smarts",
-      ageRange: [6, 12],
-    },
-    {
-      text: "You got lost in a shopping mall. (-Happiness)",
-      effect: [-10],
-      stat: "happiness",
-      ageRange: [6, 12],
-    },
+    // Early Life (0-5)
+    { text: "You giggled for the first time! (+Happiness)", effect: [5], stat: "happiness", ageRange: [0, 1] },
+    { text: "You started crawling around the house. (+Health)", effect: [5], stat: "health", ageRange: [0, 2] },
+    { text: "You said your first word! (+Smarts)", effect: [10], stat: "smarts", ageRange: [1, 3] },
+    { text: "You took your first steps. (+Happiness)", effect: [10], stat: "happiness", ageRange: [1, 3] },
+    { text: "You had a minor cold. (-Health)", effect: [-5], stat: "health", ageRange: [0, 5] },
+
+    // Childhood (6-12)
+    { text: "You discovered a talent for drawing. Start a course?", choices: ["Yes", "No"], effect: [15, 0], stat: "happiness", ageRange: [6, 12] },
+    { text: "You tripped and fell at school. (-Health)", effect: [-5], stat: "health", ageRange: [6, 12] },
+    { text: "You made a new best friend! (+Happiness)", effect: [10], stat: "happiness", ageRange: [6, 12] },
+    { text: "You started learning how to ride a bike. (+Smarts)", effect: [5], stat: "smarts", ageRange: [6, 12] },
+    { text: "You got lost in a shopping mall. (-Happiness)", effect: [-10], stat: "happiness", ageRange: [6, 12] },
+
     // Teenage (13-19)
-    {
-      text: "You studied hard for an exam. (+Smarts)",
-      effect: [10],
-      stat: "smarts",
-      ageRange: [13, 19],
-    },
-    {
-      text: "You skipped studying for a fun night out. (-Smarts, +Happiness)",
-      effect: [-10, 10],
-      stat: ["smarts", "happiness"],
-      ageRange: [14, 19],
-    },
-    {
-      text: "You passed an important exam! (+Smarts)",
-      effect: [20],
-      stat: "smarts",
-      ageRange: [15, 19],
-    },
-    {
-      text: "You fell off your bike and injured your leg. (-Health)",
-      effect: [-10],
-      stat: "health",
-      ageRange: [13, 19],
-    },
-    {
-      text: "You attended a concert of your favorite band. (+Happiness)",
-      effect: [20],
-      stat: "happiness",
-      ageRange: [15, 19],
-    },
+    { text: "You studied hard for an exam. (+Smarts)", effect: [10], stat: "smarts", ageRange: [13, 19] },
+    { text: "You skipped studying for a fun night out. (-Smarts, +Happiness)", effect: [-10, 10], stat: ["smarts", "happiness"], ageRange: [14, 19] },
+    { text: "You passed an important exam! (+Smarts)", effect: [20], stat: "smarts", ageRange: [15, 19] },
+    { text: "You fell off your bike and injured your leg. (-Health)", effect: [-10], stat: "health", ageRange: [13, 19] },
+    { text: "You attended a concert of your favorite band. (+Happiness)", effect: [20], stat: "happiness", ageRange: [15, 19] },
+
     // Adulthood (20-64)
-    {
-      text: "You got promoted at work. (+Happiness, +Smarts)",
-      effect: [20, 15],
-      stat: ["happiness", "smarts"],
-      ageRange: [25, 50],
-    },
-    {
-      text: "You started a business venture. (+Happiness, +Smarts)",
-      effect: [20, 10],
-      stat: ["happiness", "smarts"],
-      ageRange: [25, 50],
-    },
-    {
-      text: "You got food poisoning from a bad meal. (-Health)",
-      effect: [-15],
-      stat: "health",
-      ageRange: [20, 50],
-    },
-    {
-      text: "You joined a yoga class. (+Health, +Happiness)",
-      effect: [10, 5],
-      stat: ["health", "happiness"],
-      ageRange: [25, 64],
-    },
-    {
-      text: "You moved to a new city for a job opportunity. (+Smarts, -Happiness)",
-      effect: [15, -10],
-      stat: ["smarts", "happiness"],
-      ageRange: [20, 50],
-    },
+    { text: "You got promoted at work. (+Happiness, +Smarts)", effect: [20, 15], stat: ["happiness", "smarts"], ageRange: [25, 50] },
+    { text: "You started a business venture. (+Happiness, +Smarts)", effect: [20, 10], stat: ["happiness", "smarts"], ageRange: [25, 50] },
+    { text: "You got food poisoning from a bad meal. (-Health)", effect: [-15], stat: "health", ageRange: [20, 50] },
+    { text: "You joined a yoga class. (+Health, +Happiness)", effect: [10, 5], stat: ["health", "happiness"], ageRange: [25, 64] },
+    { text: "You moved to a new city for a job opportunity. (+Smarts, -Happiness)", effect: [15, -10], stat: ["smarts", "happiness"], ageRange: [20, 50] },
+
     // Retirement (65+)
-    {
-      text: "You celebrated your retirement. (+Happiness)",
-      effect: [30],
-      stat: "happiness",
-      ageRange: [65, 100],
-    },
-    {
-      text: "You started volunteering in your community. (+Happiness)",
-      effect: [15],
-      stat: "happiness",
-      ageRange: [60, 100],
-    },
-    {
-      text: "You moved to a cozy countryside house. (+Happiness, +Health)",
-      effect: [15, 10],
-      stat: ["happiness", "health"],
-      ageRange: [65, 100],
-    },
-    {
-      text: "You spent quality time with your grandchildren. (+Happiness)",
-      effect: [20],
-      stat: "happiness",
-      ageRange: [65, 100],
-    },
-    {
-      text: "You traveled the world after retiring. (+Happiness, +Smarts)",
-      effect: [20, 10],
-      stat: ["happiness", "smarts"],
-      ageRange: [65, 100],
-    },
+    { text: "You celebrated your retirement. (+Happiness)", effect: [30], stat: "happiness", ageRange: [65, 100] },
+    { text: "You started volunteering in your community. (+Happiness)", effect: [15], stat: "happiness", ageRange: [60, 100] },
+    { text: "You moved to a cozy countryside house. (+Happiness, +Health)", effect: [15, 10], stat: ["happiness", "health"], ageRange: [65, 100] },
+    { text: "You spent quality time with your grandchildren. (+Happiness)", effect: [20], stat: "happiness", ageRange: [65, 100] },
+    { text: "You traveled the world after retiring. (+Happiness, +Smarts)", effect: [20, 10], stat: ["happiness", "smarts"], ageRange: [65, 100] },
   ];
 
-  // Relationship events
   const relationshipEvents = [
-    {
-      text: "Your father invites you to go fishing. Do you accept?",
-      choices: ["Yes", "No"],
-      effect: [10, -5],
-      rel: "father",
-      ageRange: [10, 60],
-    },
-    {
-      text: "Your mother asks you to help her with chores. Will you help?",
-      choices: ["Yes", "No"],
-      effect: [10, -5],
-      rel: "mother",
-      ageRange: [5, 40],
-    },
-    {
-      text: "Your friend invites you to a birthday party. Will you go?",
-      choices: ["Yes", "No"],
-      effect: [10, -10],
-      rel: "friend",
-      ageRange: [5, 18],
-    },
+    { text: "Your father invites you to go fishing. Do you accept?", choices: ["Yes", "No"], effect: [10, -5], rel: "father", ageRange: [10, 60] },
+    { text: "Your mother asks you to help her with chores. Will you help?", choices: ["Yes", "No"], effect: [10, -5], rel: "mother", ageRange: [5, 40] },
+    { text: "Your friend invites you to a birthday party. Will you go?", choices: ["Yes", "No"], effect: [10, -10], rel: "friend", ageRange: [5, 18] },
   ];
 
   // ====================
@@ -295,13 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
       health = gameState.health;
       smarts = gameState.smarts;
       looks = gameState.looks;
-
       fatherRel = gameState.fatherRel;
       motherRel = gameState.motherRel;
       friendRel = gameState.friendRel;
-
       achievements = gameState.achievements || [];
-
       eventLog.innerHTML = gameState.eventLog || "";
 
       updateStatsDisplay();
@@ -323,24 +174,20 @@ document.addEventListener("DOMContentLoaded", () => {
     saveGameState();
   }
 
-  function handleRelationshipEvent(event) {
-    const userChoice = confirm(`${event.text} (Choose Yes or No)`);
+  function handleRelationshipEvent(evt) {
+    const userChoice = confirm(`${evt.text} (Choose Yes or No)`);
     if (userChoice) {
-      updateRelationship(event.rel, event.effect[0]);
-      updateEventLog(
-        `You chose 'Yes'. Your relationship with ${event.rel} improved! (+${event.effect[0]}%)`
-      );
+      updateRelationship(evt.rel, evt.effect[0]);
+      updateEventLog(`You chose 'Yes'. Your relationship with ${evt.rel} improved! (+${evt.effect[0]}%)`);
     } else {
-      updateRelationship(event.rel, event.effect[1]);
-      updateEventLog(
-        `You chose 'No'. Your relationship with ${event.rel} worsened. (${event.effect[1]}%)`
-      );
+      updateRelationship(evt.rel, evt.effect[1]);
+      updateEventLog(`You chose 'No'. Your relationship with ${evt.rel} worsened. (${evt.effect[1]}%)`);
     }
   }
 
   function triggerRandomRelationshipEvent() {
     const available = relationshipEvents.filter(
-      (evt) => age >= evt.ageRange[0] && age <= evt.ageRange[1]
+      (item) => age >= item.ageRange[0] && age <= item.ageRange[1]
     );
     if (available.length > 0) {
       const randomEvt = available[Math.floor(Math.random() * available.length)];
@@ -352,11 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const available = events.filter(
       (e) => age >= e.ageRange[0] && age <= e.ageRange[1]
     );
-    if (available.length === 0) {
-      return null;
-    }
+    if (available.length === 0) return null;
     return available[Math.floor(Math.random() * available.length)];
   }
+
+  let yearsSinceLastRelEvent = 0;
 
   function ageUp() {
     age++;
@@ -375,7 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
       updateEventLog(`Age ${age}: Nothing significant happened this year.`);
     }
 
-    // Trigger relationship event every ~3 years
     yearsSinceLastRelEvent++;
     if (yearsSinceLastRelEvent >= 3) {
       triggerRandomRelationshipEvent();
@@ -385,16 +231,12 @@ document.addEventListener("DOMContentLoaded", () => {
     checkGameOver();
   }
 
-  let yearsSinceLastRelEvent = 0;
-
   function handleChoices(evt) {
     const userChoice = confirm(`${evt.text} (Choose Yes or No)`);
     const effect = userChoice ? evt.effect[0] : evt.effect[1] || 0;
     updateStat(evt.stat, effect);
     updateEventLog(
-      `Age ${age}: ${evt.text} You chose '${
-        userChoice ? "Yes" : "No"
-      }'. (${evt.stat} ${effect > 0 ? "+" : ""}${effect})`
+      `Age ${age}: ${evt.text} You chose '${userChoice ? "Yes" : "No"}'. (${evt.stat} ${effect >= 0 ? "+" : ""}${effect})`
     );
   }
 
@@ -419,9 +261,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function addAchievement(achievement) {
-    achievements.push(achievement);
-    updateEventLog(`🏆 Achievement Unlocked: ${achievement}`);
+  function addAchievement(name) {
+    achievements.push(name);
+    updateEventLog(`🏆 Achievement Unlocked: ${name}`);
     updateAchievementsDisplay();
   }
 
@@ -437,14 +279,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateStat(stat, change) {
     if (Array.isArray(stat)) {
-      // Some events have multiple stats affected
-      // e.g. stat: ["smarts", "happiness"], effect: [5, 10]
-      // We'll handle that carefully
       const changes = Array.isArray(change) ? change : [change];
       for (let i = 0; i < stat.length; i++) {
-        const st = stat[i];
-        const ch = changes[i] || 0;
-        updateSingleStat(st, ch);
+        updateSingleStat(stat[i], changes[i] || 0);
       }
     } else {
       updateSingleStat(stat, change);
@@ -469,8 +306,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function clampStat(value) {
-    return Math.max(0, Math.min(100, value));
+  function clampStat(val) {
+    return Math.max(0, Math.min(100, val));
   }
 
   function updateStatsDisplay() {
@@ -481,9 +318,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (looksBar) looksBar.style.width = looks + "%";
   }
 
-  function updateEventLog(message) {
+  function updateEventLog(msg) {
     const p = document.createElement("p");
-    p.textContent = message;
+    p.textContent = msg;
     eventLog.appendChild(p);
     eventLog.scrollTop = eventLog.scrollHeight;
   }
@@ -511,14 +348,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ================
-  // 5) EVENT LISTENERS
-  // ================
+  // Attach listeners
   document.getElementById("ageUp").addEventListener("click", ageUp);
   document.getElementById("resetGame").addEventListener("click", resetGame);
 
-  // ================
-  // 6) INIT ON LOAD
-  // ================
+  // Initialize on load
   loadGameState();
 });
