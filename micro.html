@@ -2,38 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Micro-Level Interactions</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div id="header">
-    <span id="logo">Simulation</span>
-    <button id="backButton" onclick="goBack()">Back</button>
-  </div>
-
-  <!-- Container for the micro-level chat/actions -->
-  <div class="card">
-    <h1>Micro-Level Interactions</h1>
-
-    <div id="microChatLog" class="micro-chat-log">
-      <!-- Chat messages appear here -->
+  <!-- Header -->
+  <header class="top-bar">
+    <div class="top-left">
+      <span class="logo-text" style="color:black;">Simulation</span>
     </div>
-
-    <div class="micro-chat-input">
-      <input 
-        type="text" 
-        id="microInput" 
-        placeholder="Enter your action or dialogue..."
-        onkeydown="handleKeyDown(event)"
-      />
-      <button id="microSendButton" onclick="handleMicroAction()">Send</button>
+    <div class="top-right">
+      <button onclick="goBack()" class="btn-reset">Back</button>
     </div>
+  </header>
 
-    <p class="hint">Try actions like: "Talk to Professor", "Rob a bank", "Flirt with the professor", etc.</p>
-  </div>
+  <!-- Main content -->
+  <main class="main-layout">
+    <div class="white-block" style="max-width:800px; margin:0 auto;">
+      <h2>Micro-Level Interactions</h2>
 
+      <div id="microChatLog" class="micro-chat-log">
+        <!-- Chat messages appear here -->
+      </div>
+
+      <div class="micro-chat-input">
+        <input 
+          type="text" 
+          id="microInput" 
+          placeholder="Enter your action or dialogue..."
+          onkeydown="handleKeyDown(event)"
+        />
+        <button id="microSendButton" onclick="handleMicroAction()">Send</button>
+      </div>
+
+      <p class="hint">Try actions like: "Talk to Professor", "Rob a bank", "Flirt with the professor", etc.</p>
+    </div>
+  </main>
+
+  <script>
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
   <script src="micro.js"></script>
 </body>
 </html>
