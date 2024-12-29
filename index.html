@@ -1,83 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Simulation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Introductory Page -->
-  <div id="introPage" class="intro-page">
-    <div class="intro-header">
-      <img src="your-image-path.jpg" alt="Intro Illustration" class="intro-image">
+  <!-- Top Nav / Header -->
+  <header class="top-bar">
+    <div class="top-left">
+      <span class="logo-text">Simulation</span>
     </div>
-    <div class="intro-text">
-      <h1>Welcome to Simulation</h1>
-      <p>Support for all of life’s moments</p>
+    <div class="top-right">
+      <!-- Upper-right: Reset & Game Rules -->
+      <button id="resetGame" class="btn-reset">Reset Game</button>
+      <button onclick="goToRules()" class="btn-rules">Game Rules</button>
     </div>
-    <div class="intro-actions">
-      <label class="terms">
-        <input type="checkbox" id="acceptTerms">
-        I agree to the <a href="#">Terms & Conditions</a> and acknowledge the <a href="#">Privacy Policy</a>.
-      </label>
-      <button id="createAccount" class="btn-primary">Create an Account</button>
-      <button id="login" class="btn-secondary">Log in</button>
-    </div>
-  </div>
+  </header>
 
-  <!-- Main App Content (hidden until user logs in) -->
-  <div id="appContent" style="display: none;">
-    <div id="header">
-      <span id="logo">Simulation</span>
-      <button id="diaryButton" onclick="goToDiary()">Diary</button>
-    </div>
-    
-    <!-- Stats Card -->
-    <div class="card">
-      <h1>Stats</h1>
-      <div class="stat">
+  <!-- Main layout with left column (2 white blocks) and right column (event log) -->
+  <main class="main-layout">
+    <!-- Left Column -->
+    <div class="left-column">
+      <!-- Upper-left white block: Stats + Diary button -->
+      <div class="white-block block-stats">
+        <h2>Stats</h2>
+        <!-- Example stats placeholders; your script.js updates these -->
         <p>Age: <span id="age">0</span></p>
+        <p>Health: <span id="healthDisplay">100</span></p>
+        <p>Happiness: <span id="happinessDisplay">100</span></p>
+        <p>Smarts: <span id="smartsDisplay">50</span></p>
+        <p>Looks: <span id="looksDisplay">50</span></p>
+
+        <!-- Diary button -->
+        <button onclick="goToDiary()" class="btn-primary">Diary</button>
       </div>
-      <div class="stat">
-        <p>Happiness <span>😊</span></p>
-        <div class="progress-bar">
-          <div id="happinessBar" class="progress-fill" style="width: 100%;"></div>
+
+      <!-- Lower-left white block: AI-generated picture + Micro-management -->
+      <div class="white-block block-ai">
+        <h2>Current Activity</h2>
+        <div class="ai-picture-placeholder">
+          <!-- Placeholder for AI-generated image -->
+          <p>(AI-generated picture goes here)</p>
         </div>
-      </div>
-      <div class="stat">
-        <p>Health <span>❤️</span></p>
-        <div class="progress-bar">
-          <div id="healthBar" class="progress-fill" style="width: 100%;"></div>
-        </div>
-      </div>
-      <div class="stat">
-        <p>Smarts <span>📘</span></p>
-        <div class="progress-bar">
-          <div id="smartsBar" class="progress-fill" style="width: 50%;"></div>
-        </div>
-      </div>
-      <div class="stat">
-        <p>Looks <span>⭐</span></p>
-        <div class="progress-bar">
-          <div id="looksBar" class="progress-fill" style="width: 50%;"></div>
-        </div>
+        <button onclick="goToMicroLevel()" class="btn-primary">Micro-management</button>
       </div>
     </div>
-    
-    <!-- Event Log + Buttons -->
-    <div class="card">
-      <h1>Event Log</h1>
-      <div id="eventLog"></div>
+
+    <!-- Right Column: Big block for Event Log + Age Up -->
+    <div class="right-column">
+      <div class="white-block block-event-log">
+        <h2>Event Log</h2>
+        <div id="eventLog" class="event-log"></div>
+        <button id="ageUp" class="btn-primary">Age Up</button>
+      </div>
     </div>
+  </main>
 
-    <button id="ageUp" class="btn-success">Age Up</button>
-    <button id="resetGame" class="btn-danger">Reset Game</button>
-    <button onclick="goToMicroLevel()">Micro-Level</button>
-  </div>
+  <!-- Script references -->
+  <script>
+    // Minimal stubs to avoid crashes; your real logic in script.js
+    function goToDiary() {
+      saveGameState();
+      window.location.href = "diary.html";
+    }
+    function goToMicroLevel() {
+      saveGameState();
+      window.location.href = "micro.html";
+    }
+    function goToRules() {
+      saveGameState();
+      window.location.href = "rules.html";
+    }
+  </script>
 
-  <!-- Main Script -->
   <script src="script.js"></script>
 </body>
 </html>
