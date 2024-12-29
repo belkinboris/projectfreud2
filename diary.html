@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Diary</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- Header -->
-    <div id="header">
-        <span id="logo">Simulation</span>
-        <button id="backButton" onclick="goBack()">Back</button>
+  <!-- Header -->
+  <header class="top-bar">
+    <div class="top-left">
+      <span class="logo-text" style="color:black;">Simulation</span>
     </div>
-
-    <!-- Diary Content -->
-    <div class="card">
-        <h1>Relationships</h1>
-        <p>Father Relationship: <span id="fatherRel">100</span></p>
-        <p>Mother Relationship: <span id="motherRel">100</span></p>
-        <p>Friend Relationship: <span id="friendRel">50</span></p>
+    <div class="top-right">
+      <button onclick="goBack()" class="btn-reset">Back</button>
     </div>
+  </header>
 
-    <div class="card">
-        <h1>Achievements</h1>
-        <ul id="achievementsList"></ul>
+  <!-- Main content -->
+  <main class="main-layout">
+    <div class="white-block" style="max-width:800px; margin:0 auto;">
+      <h2>Diary</h2>
+
+      <h3>Relationships</h3>
+      <p>Father Relationship: <span id="fatherRel">100</span></p>
+      <p>Mother Relationship: <span id="motherRel">100</span></p>
+      <p>Friend Relationship: <span id="friendRel">50</span></p>
+
+      <h3>Achievements</h3>
+      <ul id="achievementsList"></ul>
     </div>
+  </main>
 
-    <script>
-        // Go back to the main page
-        function goBack() {
-            window.location.href = "index.html";
-        }
+  <script>
+    function goBack() {
+      window.location.href = "index.html";
+    }
 
-        // Load the saved game state
-        const savedState = localStorage.getItem("gameState");
-        if (savedState) {
-            const gameState = JSON.parse(savedState);
+    // Load saved game state
+    const savedState = localStorage.getItem("gameState");
+    if (savedState) {
+      const gameState = JSON.parse(savedState);
 
-            // Relationships
-            const fatherRelElement = document.getElementById("fatherRel");
-            const motherRelElement = document.getElementById("motherRel");
-            const friendRelElement = document.getElementById("friendRel");
+      // Relationships
+      if (document.getElementById("fatherRel"))
+        document.getElementById("fatherRel").textContent = gameState.fatherRel || 100;
+      if (document.getElementById("motherRel"))
+        document.getElementById("motherRel").textContent = gameState.motherRel || 100;
+      if (document.getElementById("friendRel"))
+        document.getElementById("friendRel").textContent = gameState.friendRel || 50;
 
-            if (fatherRelElement) fatherRelElement.textContent = gameState.fatherRel || 100;
-            if (motherRelElement) motherRelElement.textContent = gameState.motherRel || 100;
-            if (friendRelElement) friendRelElement.textContent = gameState.friendRel || 50;
+      // Achievements
+      const achievementsList = document.getElementById("achievementsList");
+      if (achievementsList) {
+        achievementsList.innerHTML = "";
+        (gameState.achievements || []).forEach(ach => {
+          const li = document.createElement("li");
+          li.textContent = ach;
+          achievementsList.appendChild(li);
+        });
+      }
+    }
+  </script>
 
-            // Achievements
-            const achievementsList = document.getElementById("achievementsList");
-            if (achievementsList) {
-                achievementsList.innerHTML = "";
-                (gameState.achievements || []).forEach(achievement => {
-                    const listItem = document.createElement("li");
-                    listItem.textContent = achievement;
-                    achievementsList.appendChild(listItem);
-                });
-            }
-        }
-    </script>
 </body>
 </html>
