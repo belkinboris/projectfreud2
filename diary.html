@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Header -->
     <div id="header">
         <span id="logo">Simulation</span>
         <button id="backButton" onclick="goBack()">Back</button>
     </div>
 
+    <!-- Diary Content -->
     <div class="card">
         <h1>Relationships</h1>
         <p>Father Relationship: <span id="fatherRel">100</span></p>
@@ -25,17 +28,17 @@
     </div>
 
     <script>
-        // Define the goBack function globally
-        window.goBack = function () {
-            window.location.href = "index.html"; // Redirect back to the main page
-        };
+        // Go back to the main page
+        function goBack() {
+            window.location.href = "index.html";
+        }
 
-        // Load the saved game state from localStorage
+        // Load the saved game state
         const savedState = localStorage.getItem("gameState");
         if (savedState) {
             const gameState = JSON.parse(savedState);
 
-            // Restore relationships
+            // Relationships
             const fatherRelElement = document.getElementById("fatherRel");
             const motherRelElement = document.getElementById("motherRel");
             const friendRelElement = document.getElementById("friendRel");
@@ -44,10 +47,10 @@
             if (motherRelElement) motherRelElement.textContent = gameState.motherRel || 100;
             if (friendRelElement) friendRelElement.textContent = gameState.friendRel || 50;
 
-            // Restore achievements
+            // Achievements
             const achievementsList = document.getElementById("achievementsList");
             if (achievementsList) {
-                achievementsList.innerHTML = ""; // Clear the list first
+                achievementsList.innerHTML = "";
                 (gameState.achievements || []).forEach(achievement => {
                     const listItem = document.createElement("li");
                     listItem.textContent = achievement;
