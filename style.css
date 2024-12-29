@@ -1,247 +1,127 @@
-/* General Styles */
+/* ====== Body with soft background ====== */
 body {
-    font-family: 'Roboto', sans-serif;
-    /* Subtle gradient from #E6C89B to #FFFFFF */
-    background: linear-gradient(to bottom, #E6C89B 30%, #FFFFFF 100%);
-    color: #001D2A; /* Графитовый */
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #F9F1F1; /* Soft pinkish background */
+  font-family: 'Roboto', sans-serif;
+  color: #111827; /* Some dark text color */
+  min-height: 100vh;
 }
 
-/* Header Styles */
-#header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: #001D2A; /* Графитовый */
-    color: #FFFFFF;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* ====== Top Bar Header ====== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: transparent; /* Let the #F9F1F1 background show or use white if you prefer */
 }
 
-#logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #4187E6; /* Синий */
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.top-left {
+  display: flex;
+  align-items: center;
 }
 
-/* Global Buttons */
-button {
-    background: #4187E6; /* Синий */
-    color: #FFFFFF;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.2s ease;
-}
-button:hover {
-    background: #A8BFD8; /* Lighter blue */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: black; /* As requested: black text for "Simulation" */
 }
 
-/* Progress Bars */
-.stat {
-    margin: 15px 0;
-}
-.progress-bar {
-    background: #BBC7DB;
-    border-radius: 8px;
-    height: 20px;
-    width: 100%;
-    overflow: hidden;
-    margin-top: 5px;
-}
-.progress-fill {
-    background: #4187E6;
-    height: 100%;
-    border-radius: 8px;
-    transition: width 0.4s ease-in-out;
+.top-right button {
+  margin-left: 10px;
 }
 
-/* Card Styles */
-.card {
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(6px);
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
-    color: #001D2A;
-    border: 1px solid #D8DCE2;
-    text-align: center;
-}
-.card h1 {
-    font-size: 24px;
-    color: #4187E6;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #D8DCE2;
-    padding-bottom: 10px;
+/* ====== Layout: Left & Right Columns ====== */
+.main-layout {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
 }
 
-/* Introductory Page */
-.intro-page {
-    background: linear-gradient(to bottom, #E6C89B 50%, #001D2A 50%);
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-}
-.intro-header {
-    margin-top: 50px;
-}
-.intro-image {
-    width: 200px;
-    height: auto;
-}
-.intro-text h1 {
-    font-size: 28px;
-    color: #FFFFFF;
-}
-.intro-text p {
-    font-size: 16px;
-    color: #FFFFFF;
-    margin: 10px 0;
-}
-.intro-actions {
-    background-color: #001D2A;
-    width: 100%;
-    padding: 20px;
-    border-radius: 20px 20px 0 0;
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 320px; /* or 30% in a more fluid layout */
 }
 
-/* Terms label */
-.terms {
-    font-size: 14px;
-    color: white;
-}
-.terms input[type="checkbox"] {
-    margin-right: 10px;
-}
-.terms a {
-    color: #4187E6;
-    text-decoration: none;
-}
-.terms a:hover {
-    text-decoration: underline;
+.right-column {
+  flex: 1;
 }
 
-/* Primary button */
-.btn-primary {
-    background-color: #4187E6;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 30px;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-    width: 90%;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-}
-.btn-primary:hover {
-    background-color: #A8BFD8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-.btn-primary:disabled {
-    background-color: #A8BFD8;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+/* ====== White Blocks with box shadows ====== */
+.white-block {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
 }
 
-/* Secondary button */
-.btn-secondary {
-    background-color: #4B4B4B;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 30px;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-    width: 90%;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-}
-.btn-secondary:hover {
-    background-color: #3B3B3B;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+.white-block h2 {
+  margin-bottom: 16px;
 }
 
-/* Stat Display */
-.card p {
-    font-size: 18px;
-    margin: 8px 0;
-}
-.card span {
-    font-weight: bold;
-    color: #4187E6;
-}
-
-/* Buttons for Age Up / Reset */
-#ageUp, #resetGame {
-    display: block;
-    margin: 20px auto;
-    font-weight: bold;
-    padding: 12px 18px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    border-radius: 8px;
-}
-#ageUp {
-    background: #4187E6;
-    color: #FFFFFF;
-}
-#ageUp:hover {
-    background: #A8BFD8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-#resetGame {
-    background: #4B4B4B;
-    color: #FFFFFF;
-}
-#resetGame:hover {
-    background: #3B3B3B;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+/* Example placeholders for AI pic, etc. */
+.ai-picture-placeholder {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 16px;
 }
 
-/* Event Log Animation */
-#eventLog p {
-    opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Micro-level chat styles */
-.micro-chat-log {
-  background-color: #F9F9F9;
+/* ====== Event Log ====== */
+.event-log {
+  background: #f0f0f0;
   height: 300px;
   overflow-y: auto;
-  border: 1px solid #D8DCE2;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* Buttons with pinkish background from your screenshot? 
+   It's a matter of taste. We'll do this for .btn-primary. */
+.btn-primary {
+  background-color: #f9f1f1;
+  color: #111827;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-primary:hover {
+  background-color: #e4dadb; /* slightly darker pink for hover */
+  transform: translateY(-1px);
+}
+
+/* Reset & Rules Buttons (upper-right) 
+   We'll style them slightly differently to stand out. */
+.btn-reset, .btn-rules {
+  background-color: #fff;
+  color: #111827;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-reset:hover, .btn-rules:hover {
+  background-color: #eee;
+  transform: translateY(-1px);
+}
+
+/* ====== Micro Chat Styles ====== */
+.micro-chat-log {
+  background-color: #fff;
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 10px;
@@ -258,66 +138,38 @@ button:hover {
 }
 .micro-chat-input {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   gap: 8px;
 }
 .micro-chat-input input[type="text"] {
   flex: 1;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 8px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 .micro-chat-input button {
-  padding: 10px 20px;
-  border-radius: 8px;
+  background-color: #f9f1f1;
+  color: #111827;
+  padding: 8px 16px;
+  border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.micro-chat-input button:hover {
+  background-color: #e4dadb;
+  transform: translateY(-1px);
 }
 
-/* Hint text */
-.hint {
-  color: #888;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-/* Event Log */
-#eventLog {
-    max-height: 200px;
-    overflow-y: auto;
-    background: #F5F5F5;
-    border: 1px solid #D8DCE2;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 10px;
-}
-#eventLog p {
-    font-size: 16px;
-    margin: 5px 0;
-    color: #666;
-}
-
-/* Responsive Design */
+/* ====== Mobile Responsiveness ====== */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-    .card {
-        margin: 10px;
-        padding: 15px;
-    }
-    button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-    .btn-primary,
-    .btn-secondary {
-        width: auto;
-        margin-top: 10px;
-    }
-    #ageUp, #resetGame {
-        font-size: 16px;
-        margin-top: 10px;
-    }
+  .main-layout {
+    flex-direction: column;
+    padding: 16px;
+  }
+  .left-column, .right-column {
+    width: 100%;
+  }
+  .white-block {
+    margin-bottom: 16px;
+  }
 }
