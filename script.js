@@ -573,12 +573,6 @@ function goToDiary() {
     saveGameState();
     window.location.href = "diary.html";
 }
-
-function goToMicroLevel() {
-  // We can save the game state before we jump to micro-level page
-  saveGameState();
-  window.location.href = "micro.html";
-}
     
 function checkGameOver() {
     if (health <= 0 || happiness <= 0) {
@@ -587,6 +581,12 @@ function checkGameOver() {
     }
 }
 
+function goToMicroLevel() {
+  // We can save the game state before we jump to micro-level page
+  saveGameState();
+  window.location.href = "micro.html";
+}
+    
 // Event listeners
 document.getElementById("ageUp").addEventListener("click", ageUp);
 document.getElementById("resetGame").addEventListener("click", resetGame);
